@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.aggreycliford.barapp.Activities.Admin_Home">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="3"
+        android:title="@string/action_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_stock"
+        android:orderInCategory="1"
+        android:title="@string/action_stock"
+        android:icon="@drawable/ic_store_white_24dp"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_users"
+        android:orderInCategory="2"
+        android:title="@string/action_users"
+        android:icon="@drawable/ic_people_white_24dp"
+        app:showAsAction="always" />
+
+</menu>

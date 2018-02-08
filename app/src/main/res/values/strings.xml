@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Bar</string>
+    <string name="login_hint">Login</string>
+    <string name="passcode_hint">Pin code</string>
+    <string name="welcome"><b>Drink &amp; Enjoy</b></string>
+    <string name="title_activity_admin__home">"Admin "</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_admin_home">Admin</string>
+    <string name="hint_lname">Last Name</string>
+    <string name="hint_fname">First Name</string>
+    <string name="hint_phone">Phone</string>
+    <string name="hint_email">Email</string>
+    <string name="register">creating user....</string>
+    <string name="btn_sign_up">Create User</string>
+    <string name="action_stock">Available stock</string>
+    <string name="action_users">Users</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_list_users">Users List</string>
+    <string name="title_activity_stock">Stock Listings</string>
+
+</resources>
