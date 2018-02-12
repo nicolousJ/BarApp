@@ -3,11 +3,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.aggreycliford.barapp.Fragments.Report">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+        <TextView
+                android:layout_marginLeft="@dimen/margin_16"
+                android:layout_marginRight="@dimen/margin_16"
+                android:id="@+id/summary_hnt"
+                android:paddingBottom="@dimen/margin_16"
+                android:paddingTop="@dimen/margin_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="@string/summary_hint" />
+        <include layout="@layout/h_line"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16"
+            android:layout_marginRight="@dimen/margin_16"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/txt_total_collected"
+                android:paddingBottom="@dimen/margin_5"
+                android:paddingTop="@dimen/margin_5"
+                android:layout_width="match_parent"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darck_grey"
+                android:layout_weight="1"
+                android:text="@string/total_collected_hint" />
 
+            <TextView
+                android:id="@+id/total_collected"
+                android:paddingBottom="@dimen/margin_5"
+                android:paddingTop="@dimen/margin_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textAlignment="textEnd"
+                android:gravity="end"
+                android:layout_weight="2"
+                android:text="700,000" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_16"
+            android:layout_marginRight="@dimen/margin_16"
+            android:orientation="horizontal"
+            android:layout_marginBottom="15dp"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/txt_number_of_sales"
+                android:paddingBottom="@dimen/margin_16"
+                android:paddingTop="@dimen/margin_16"
+                android:layout_width="match_parent"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darck_grey"
+                android:layout_weight="1"
+                android:text="@string/number_of_sales_hint" />
+
+            <TextView
+                android:id="@+id/number_of_sales"
+                android:paddingBottom="@dimen/margin_16"
+                android:paddingTop="@dimen/margin_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textAlignment="textEnd"
+                android:gravity="end"
+                android:layout_weight="2"
+                android:text="53"/>
+
+        </LinearLayout>
+        <include layout="@layout/h_line"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="5dp"
+            android:paddingTop="@dimen/margin_16"
+            android:paddingBottom="@dimen/margin_16"
+            android:background="@color/grey_2"
+            android:layout_marginBottom="3dp"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/category_sales"
+                android:paddingBottom="@dimen/margin_5"
+                android:paddingTop="@dimen/margin_5"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="8dp"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:layout_weight="1"
+                android:text="@string/category_of_sales_hint" />
+
+            <TextView
+                android:id="@+id/gross_sales"
+                android:paddingBottom="@dimen/margin_5"
+                android:paddingTop="@dimen/margin_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:textAlignment="textStart"
+                android:gravity="start"
+                android:layout_weight="2"
+                android:text="@string/gross_sales_hint"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/grey_2">
+
+            <com.diegodobelo.expandingview.ExpandingList
+                android:id="@+id/expanding_list_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"/>
+
+        </RelativeLayout>
+    </LinearLayout>
 </FrameLayout>

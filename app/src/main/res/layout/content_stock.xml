@@ -8,4 +8,12 @@
     tools:context="com.aggreycliford.barapp.Activities.Stock"
     tools:showIn="@layout/activity_stock">
 
+    <ListView
+        android:id="@+id/list"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </ListView>
 </RelativeLayout>
