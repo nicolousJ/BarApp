@@ -6,14 +6,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.aggreycliford.barapp.Models.CategoryModel;
+import com.aggreycliford.barapp.Adapters.ReportsAdapter;
 import com.aggreycliford.barapp.R;
-import com.diegodobelo.expandingview.ExpandingItem;
-import com.diegodobelo.expandingview.ExpandingList;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -29,20 +31,11 @@ public class Report extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    ExpandingList expandingList;
-    ExpandingItem item;
-    TextView Title;
-    String[]category_names = {"Beer","Juice","Water"};
-    float[]catprice ={5500,122000,89500};
-    String[]beers ={"Balimi","Konyagi","Serengeti"};
-    float[]beerprices ={1200,2300,7000};
-    String[]juices ={"Azam","Mo-juice","Mo-juice2"};
-    float[]juiceprices ={1500,5300,8000};
-    String[]water ={"Uhai","Kilimanjaro","Afya"};
-    float[]waterprices ={1600,6900,17000};
+    ExpandableListView expandingList;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
 
-    ArrayList<CategoryModel>data;
-
+    ImageView filter;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -87,58 +80,18 @@ public class Report extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_report, container, false);
         expandingList = v.findViewById(R.id.expanding_list_main);
-        item = expandingList.createNewItem(R.layout.expanding_layout);
-         Title  =  item.findViewById(R.id.title);
-
-
-        data = new ArrayList<>();
-        for (int i=0; i<category_names.length;i++){
-            CategoryModel model = new CategoryModel();
-            model.setCat_name(category_names[i]);
-            model.setPrice(catprice[i]);
-            if(i == 0){
-                model.setSubctas(beers);
-                model.setSubprices(beerprices);
-                data.add(model);
-
+        filter = v.findViewById(R.id.filter_img);
+        // preparing list data
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Load the date filter dialog here", Toast.LENGTH_SHORT).show();
             }
-            if(i==1){
-                model.setSubctas(juices);
-                model.setSubprices(juiceprices);
-                data.add(model);
-            }
-            if(i==2){
-                model.setSubctas(water);
-                model.setSubprices(waterprices);
-                data.add(model);
+        });
+        prepareListData();
 
-            }
-        }
-
-         for (int i =0; i< category_names.length; i++){
-
-             Title.setText(category_names[i]);
-                 if(i == 0){
-
-                     for(int j= 0; j<beers.length; j++) {
-                         item.createSubItems(beers.length);
-                         View subItemZero = item.getSubItemView(j);
-                         ((TextView) subItemZero.findViewById(R.id.sub_title)).setText(beers[j]);
-                         ((TextView) subItemZero.findViewById(R.id.sub_amount)).setText(""+beerprices[j]);
-                     }
-                 }
-
-
-                 item.setIndicatorColorRes(R.color.colorPrimary);
-                 item.setIndicatorIconRes(R.drawable.ic_create_black_24dp);
-
-         }
-
-
-
-        //get a sub item View
-
-
+        ReportsAdapter adapter = new ReportsAdapter(getActivity(), listDataHeader, listDataChild);
+        expandingList.setAdapter(adapter);
         return  v;
     }
 
@@ -179,5 +132,43 @@ public class Report extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    private void prepareListData() {
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
+
+        // Adding child data
+        listDataHeader.add("Beer");
+        listDataHeader.add("Juice");
+        listDataHeader.add("Water");
+
+        // Adding child data
+        List<String> top250 = new ArrayList<String>();
+        top250.add("Balimi");
+        top250.add("Safari");
+        top250.add("Serengeti");
+        top250.add("Pulp Fiction");
+        top250.add("Konyagi");
+
+        List<String> nowShowing = new ArrayList<String>();
+        nowShowing.add("The Conjuring");
+        nowShowing.add("Despicable Me 2");
+        nowShowing.add("Turbo");
+        nowShowing.add("Grown Ups 2");
+        nowShowing.add("Red 2");
+        nowShowing.add("The Wolverine");
+
+        List<String> comingSoon = new ArrayList<String>();
+        comingSoon.add("Kilimanjaro");
+        comingSoon.add("Masafi");
+        comingSoon.add("Uhai");
+        comingSoon.add("Maisha");
+        comingSoon.add("Europa Report");
+
+        listDataChild.put(listDataHeader.get(0), top250); // Header, Child data
+        listDataChild.put(listDataHeader.get(1), nowShowing);
+        listDataChild.put(listDataHeader.get(2), comingSoon);
     }
 }

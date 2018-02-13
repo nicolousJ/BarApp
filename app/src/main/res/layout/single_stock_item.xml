@@ -17,13 +17,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="5">
-
-                <ImageView
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
                     android:id="@+id/brandlogo"
-                    android:src="@drawable/image_colored"
                     android:layout_width="match_parent"
-                    android:background="@color/btn_color"
-                    android:layout_height="56dp" />
+                    android:layout_height="46dp"
+                    android:src="@drawable/image_colored"
+                    app:civ_border_width="2dp"
+                    app:civ_border_color="#FF000000"/>
             </RelativeLayout>
 
             <LinearLayout

@@ -22,6 +22,8 @@ import com.aggreycliford.barapp.R;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 /**
  * Created by nico on 2/8/2018.
  */
@@ -43,7 +45,7 @@ public class StockAdapter extends ArrayAdapter<StockDataModel> {
     private static class ViewHolder{
         TextView txtname;
         TextView txtitems;
-        ImageView imglogo;
+        CircleImageView imglogo;
         ImageView edit;
         ImageView delete;
     }
@@ -52,7 +54,7 @@ public class StockAdapter extends ArrayAdapter<StockDataModel> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        ViewHolder viewHolder;
+        final ViewHolder viewHolder;
         View result;
         if(convertView == null){
             viewHolder = new ViewHolder();
@@ -60,7 +62,7 @@ public class StockAdapter extends ArrayAdapter<StockDataModel> {
             convertView = inflater.inflate(res,parent,false);
             viewHolder.txtname = (TextView) convertView.findViewById(R.id.brand_name);
             viewHolder.txtitems = (TextView) convertView.findViewById(R.id.items_total);
-            viewHolder.imglogo = (ImageView) convertView.findViewById(R.id.brandlogo);
+            viewHolder.imglogo = (CircleImageView) convertView.findViewById(R.id.brandlogo);
             viewHolder.edit = (ImageView) convertView.findViewById(R.id.edit);
             viewHolder.delete = (ImageView) convertView.findViewById(R.id.delete);
 
@@ -70,6 +72,8 @@ public class StockAdapter extends ArrayAdapter<StockDataModel> {
             viewHolder = (ViewHolder) convertView.getTag();
             result = convertView;
         }
+        viewHolder.imglogo.setImageResource(R.drawable.image_colored);
+//        viewHolder.imglogo.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
         viewHolder.txtname.setText(data.get(position).getName());
         viewHolder.txtitems.setText("Total items  : "+data.get(position).getItems());
 
