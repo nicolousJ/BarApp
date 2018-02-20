@@ -23,8 +23,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="46dp"
                     android:src="@drawable/image_colored"
-                    app:civ_border_width="2dp"
-                    app:civ_border_color="#FF000000"/>
+                    android:layout_centerInParent="true"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="@color/grey_2"/>
             </RelativeLayout>
 
             <LinearLayout
